@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>توابل الدار — مدام ليلى عزوزي، منوبة</title>
+<meta name="description" content="توابل تونسية أصيلة، محضّرة يدويًا من طرف امرأة تونسية حرة. توصيل مجاني لكل ولايات تونس.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2B1B12;
+    --paper:#F6ECD8;
+    --paper-2:#EEE0C4;
+    --gold:#D9A441;
+    --paprika:#B23A2C;
+    --olive:#6E7B3F;
+    --clay:#8C5A3C;
+    --cream-text:#FBF3E3;
+    --line: rgba(43,27,18,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Tajawal', sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3, .display{
+    font-family:'Amiri', serif;
+    font-weight:700;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    background:rgba(246,236,216,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1180px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Amiri', serif; font-weight:700; font-size:1.35rem;
+    color:var(--paprika);
+  }
+  .brand-mark{
+    width:34px; height:34px; border-radius:50%;
+    background: conic-gradient(from 200deg, var(--gold), var(--paprika), var(--olive), var(--gold));
+    flex:none;
+  }
+  nav.top-links{display:flex; gap:28px; font-size:0.98rem;}
+  nav.top-links a{opacity:0.85; transition:opacity .2s;}
+  nav.top-links a:hover{opacity:1; color:var(--paprika);}
+  .call-btn{
+    display:flex; align-items:center; gap:8px;
+    background:var(--olive); color:var(--cream-text);
+    padding:9px 18px; border-radius:999px; font-size:0.92rem; font-weight:700;
+    white-space:nowrap;
+  }
+  .call-btn:hover{background:#5c6733;}
+  .menu-toggle{display:none; font-size:1.6rem; background:none; border:none; color:var(--ink); cursor:pointer;}
+
+  @media (max-width:820px){
+    nav.top-links{
+      position:fixed; inset:64px 0 auto 0; background:var(--paper);
+      flex-direction:column; padding:18px 24px; gap:18px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-130%); transition:transform .3s ease;
+    }
+    nav.top-links.open{transform:translateY(0);}
+    .menu-toggle{display:block;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    min-height:86vh;
+    background:var(--ink);
+    color:var(--cream-text);
+    overflow:hidden;
+  }
+  .hero-text{
+    position:relative; z-index:3;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:70px 56px 70px 40px;
+  }
+  .eyebrow-plain{
+    font-size:0.95rem; color:var(--gold); font-weight:700; margin-bottom:18px;
+    letter-spacing:0.2px;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 5vw, 3.6rem);
+    line-height:1.28;
+    color:var(--cream-text);
+    max-width:15ch;
+  }
+  .hero h1 .accent{color:var(--gold);}
+  .hero p.lede{
+    margin-top:24px; font-size:1.1rem; max-width:46ch; color:#E9D9BE;
+  }
+  .hero-ctas{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--paprika); color:var(--cream-text);
+    padding:15px 30px; border-radius:8px; font-weight:700; font-size:1.02rem;
+    box-shadow:0 8px 24px rgba(178,58,44,0.35);
+  }
+  .btn-primary:hover{background:#9a2f22;}
+  .btn-ghost{
+    border:1.5px solid rgba(251,243,227,0.4); color:var(--cream-text);
+    padding:14px 28px; border-radius:8px; font-weight:700; font-size:1.02rem;
+  }
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+
+  .hero-photo{
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-photo img{
+    width:100%; height:100%; object-fit:cover; object-position:top center;
+    filter:saturate(1.05) contrast(1.03);
+  }
+  .hero-photo::before{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, var(--ink) 0%, rgba(43,27,18,0) 26%);
+  }
+  .hero-photo::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(43,27,18,0.55), rgba(43,27,18,0) 45%);
+  }
+  .hero-caption{
+    position:absolute; bottom:22px; right:26px; z-index:2;
+    font-size:0.92rem; color:#F2E4C8;
+    background:rgba(43,27,18,0.55); padding:8px 14px; border-radius:999px;
+    backdrop-filter:blur(3px);
+  }
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr; min-height:auto;}
+    .hero-photo{height:52vh;}
+    .hero-text{padding:48px 24px 56px;}
+  }
+
+  /* ---------- woven divider (single bold moment) ---------- */
+  .weave{
+    height:64px; width:100%;
+    background:
+      repeating-linear-gradient(115deg, var(--gold) 0 26px, var(--paprika) 26px 52px, var(--olive) 52px 78px);
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+  }
+
+  /* ---------- section titles ---------- */
+  .section{padding:96px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head .kicker{color:var(--paprika); font-weight:700; font-size:0.98rem; margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem); line-height:1.3;}
+  .section-head p{margin-top:16px; font-size:1.05rem; color:#4a3a2c; max-width:56ch;}
+
+  /* ---------- about / story ---------- */
+  .story{
+    display:grid; grid-template-columns: 0.85fr 1.15fr; gap:64px; align-items:center;
+  }
+  .story-photo{
+    position:relative; border-radius:6px; overflow:hidden;
+    box-shadow: 14px 14px 0 var(--gold);
+  }
+  .story-photo img{width:100%; height:520px; object-fit:cover; object-position: top center;}
+  .story h2{font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:22px;}
+  .story p{font-size:1.06rem; color:#3d2f22; margin-bottom:16px;}
+  .story .signature{
+    margin-top:28px; font-family:'Amiri', serif; font-style:italic; font-size:1.25rem; color:var(--paprika);
+  }
+  .badge-row{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .badge{
+    display:flex; align-items:center; gap:10px;
+    border:1px solid var(--line); background:var(--paper-2);
+    padding:10px 16px; border-radius:999px; font-size:0.92rem; font-weight:500;
+  }
+  .badge .dot{width:8px; height:8px; border-radius:50%; background:var(--olive); flex:none;}
+  @media (max-width:880px){
+    .story{grid-template-columns:1fr; gap:40px;}
+    .story-photo{box-shadow:8px 8px 0 var(--gold);}
+    .story-photo img{height:auto;}
+  }
+
+  /* ---------- products ---------- */
+  .products-section{background:var(--ink); color:var(--cream-text);}
+  .products-section .section-head p{color:#D9C9AC;}
+  .products-section .kicker{color:var(--gold);}
+  .grid-products{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:2px;
+    background:rgba(251,243,227,0.14);
+    border:1px solid rgba(251,243,227,0.14);
+  }
+  .p-card{
+    background:var(--ink); padding:28px 22px 24px;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    gap:14px;
+  }
+  .p-swatch{width:74px; height:74px; border-radius:50%; position:relative; flex:none;}
+  .p-name{font-weight:700; font-size:1.02rem;}
+  .p-desc{font-size:0.86rem; color:#C9B995; line-height:1.55;}
+  @media (max-width:900px){ .grid-products{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:500px){ .grid-products{grid-template-columns:1fr 1fr;} }
+
+  /* ---------- delivery ---------- */
+  .delivery{
+    display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;
+  }
+  .map-block{
+    background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:36px;
+  }
+  .map-block h3{font-size:1.4rem; margin-bottom:14px;}
+  .gov-list{
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;
+  }
+  .gov-chip{
+    font-size:0.82rem; padding:6px 12px; border-radius:999px;
+    background:var(--paper); border:1px solid var(--line); color:#4a3a2c;
+  }
+  .steps{list-style:none; counter-reset:step;}
+  .steps li{
+    counter-increment:step; display:flex; gap:18px; padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .steps li:last-child{border-bottom:none;}
+  .steps .num{
+    font-family:'Amiri', serif; font-weight:700; font-size:1.3rem; color:var(--paprika);
+    flex:none; width:34px;
+  }
+  .steps h4{font-size:1.08rem; margin-bottom:4px;}
+  .steps p{font-size:0.94rem; color:#4a3a2c;}
+  @media (max-width:880px){ .delivery{grid-template-columns:1fr;} }
+
+  /* ---------- whatsapp CTA band ---------- */
+  .wa-band{
+    background:var(--olive); color:var(--cream-text);
+    padding:64px 0; text-align:center;
+  }
+  .wa-band h2{font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:16px;}
+  .wa-band p{font-size:1.05rem; color:#EDE7D2; max-width:52ch; margin:0 auto 28px;}
+  .wa-btn{
+    display:inline-flex; align-items:center; gap:12px;
+    background:var(--cream-text); color:var(--ink);
+    padding:16px 34px; border-radius:999px; font-weight:700; font-size:1.1rem;
+  }
+  .wa-btn:hover{background:#fff;}
+  .wa-btn svg{width:24px; height:24px; flex:none;}
+
+  /* ---------- family strip ---------- */
+  .family{
+    display:grid; grid-template-columns: 1fr 1.4fr; gap:0; align-items:stretch;
+    border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--paper-2);
+  }
+  .family img{width:100%; height:100%; object-fit:cover; min-height:260px;}
+  .family-text{padding:40px 44px; display:flex; flex-direction:column; justify-content:center;}
+  .family-text p{font-size:1.02rem; color:#3d2f22;}
+  .family-text .signature{font-family:'Amiri', serif; font-style:italic; color:var(--paprika); font-size:1.15rem; margin-top:18px;}
+  @media (max-width:780px){ .family{grid-template-columns:1fr;} .family img{min-height:220px;} }
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--ink); color:#D9C9AC; padding:48px 0 28px; font-size:0.92rem;
+  }
+  .foot-inner{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;
+    padding-bottom:28px; border-bottom:1px solid rgba(251,243,227,0.14);
+  }
+  .foot-brand{font-family:'Amiri', serif; font-size:1.3rem; color:var(--gold); font-weight:700;}
+  .foot-cols{display:flex; gap:56px; flex-wrap:wrap;}
+  .foot-cols h5{color:var(--cream-text); margin-bottom:12px; font-weight:700;}
+  .foot-cols a, .foot-cols div{display:block; color:#C9B995; margin-bottom:8px;}
+  .foot-bottom{padding-top:22px; text-align:center; color:#9c8c6b;}
+
+  /* ---------- floating whatsapp ---------- */
+  .float-wa{
+    position:fixed; left:20px; bottom:20px; z-index:50;
+    background:#25D366; width:58px; height:58px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  }
+  .float-wa svg{width:30px; height:30px; fill:#fff;}
+
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{ animation: fadeUp .7s ease both; }
+  }
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark"></span> توابل الدار</div>
+    <nav class="top-links" id="navLinks">
+      <a href="#story">قصتنا</a>
+      <a href="#products">أصناف التوابل</a>
+      <a href="#delivery">التوصيل</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <a class="call-btn" href="https://wa.me/21650992242" target="_blank" rel="noopener">اطلب عبر واتساب</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="القائمة">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow-plain">منوبة، تونس — تحضير يدوي</div>
+    <h1>توابل تونسية أصيلة، من يد امرأة <span class="accent">تونسية حرة</span></h1>
+    <p class="lede">
+      مع مدام ليلى عزوزي، كل حبة توابل تُنقّى وتُطحن وتُخلط يدويًا في الدار، بنفس الوصفات العائلية التي لا تتغيّر منذ أجيال.
+      أكثر من سبعة عشر صنفًا، وتوصيل مجاني إلى كل ولايات الجمهورية.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#products">شاهدي الأصناف</a>
+      <a class="btn-ghost" href="https://wa.me/21650992242" target="_blank" rel="noopener">اطلبي الآن</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/leila-solo.jpg" alt="مدام ليلى عزوزي">
+    <div class="hero-caption">ليلى عزوزي — صاحبة توابل الدار</div>
+  </div>
+</section>
+
+<div class="weave"></div>
+
+<section class="section" id="story">
+  <div class="wrap story">
+    <div class="story-photo">
+      <img src="assets/leila-solo.jpg" alt="مدام ليلى عزوزي في نشاطها">
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:0;">
+        <div class="kicker">قصتي</div>
+        <h2>من مطبخ صغير في منوبة، إلى مائدتكم</h2>
+      </div>
+      <p style="margin-top:22px;">
+        أنا ليلى عزوزي، من منوبة. بدأت بتحضير التوابل لأهل بيتي وجيراني، قبل أن تتحوّل هذه العادة إلى مشروع صغير أفتخر به.
+        لا أستعمل آلات صناعية للطحن الدقيق ولا مواد حافظة؛ كل كمية تُحضّر بكميات صغيرة لتبقى النكهة والرائحة كما في البيوت التونسية القديمة.
+      </p>
+      <p>
+        اخترت أن يبقى العمل يدويًا بالكامل لأنّ التوابل التونسية الحقيقية لها طابع خاص لا تعطيه الآلة: حرارة اليد، ودقة الانتقاء، وصبر التجفيف الطبيعي تحت الشمس.
+      </p>
+      <div class="badge-row">
+        <div class="badge"><span class="dot"></span> تحضير يدوي 100%</div>
+        <div class="badge"><span class="dot"></span> بدون مواد حافظة</div>
+        <div class="badge"><span class="dot"></span> توصيل مجاني لكل تونس</div>
+      </div>
+      <div class="signature">— مدام ليلى عزوزي</div>
+    </div>
+  </div>
+</section>
+
+<section class="section products-section" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">القائمة</div>
+      <h2>أكثر من سبعة عشر صنفًا من التوابل التونسية</h2>
+      <p>كل صنف يُطحن ويُخلط على حدة، بكميات محدودة أسبوعيًا لضمان الطزاجة. الأسعار والكميات تُحدّد عند التواصل عبر واتساب.</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="grid-products" id="productGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="delivery">
+  <div class="wrap delivery">
+    <div class="map-block">
+      <h3>توصيل مجاني إلى كل ولايات تونس</h3>
+      <p>مهما كان مكان إقامتك، من تونس الكبرى إلى أقصى الجنوب أو الشمال الغربي، طلبك يصلك دون أي مصاريف توصيل إضافية.</p>
+      <div class="gov-list">
+        <span class="gov-chip">تونس</span><span class="gov-chip">أريانة</span><span class="gov-chip">بن عروس</span>
+        <span class="gov-chip">منوبة</span><span class="gov-chip">نابل</span><span class="gov-chip">بنزرت</span>
+        <span class="gov-chip">باجة</span><span class="gov-chip">جندوبة</span><span class="gov-chip">الكاف</span>
+        <span class="gov-chip">سليانة</span><span class="gov-chip">القيروان</span><span class="gov-chip">القصرين</span>
+        <span class="gov-chip">سيدي بوزيد</span><span class="gov-chip">سوسة</span><span class="gov-chip">المنستير</span>
+        <span class="gov-chip">المهدية</span><span class="gov-chip">صفاقس</span><span class="gov-chip">قفصة</span>
+        <span class="gov-chip">توزر</span><span class="gov-chip">قبلي</span><span class="gov-chip">قابس</span>
+        <span class="gov-chip">مدنين</span><span class="gov-chip">تطاوين</span><span class="gov-chip">زغوان</span>
+        <span class="gov-chip">سيدي بوزيد</span><span class="gov-chip">باقي الولايات</span>
+      </div>
+    </div>
+    <div>
+      <ol class="steps">
+        <li>
+          <span class="num">١</span>
+          <div>
+            <h4>راسلينا عبر واتساب</h4>
+            <p>أرسلي رسالة على الرقم 21650992242 مع الأصناف والكميات التي ترغبين فيها.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">٢</span>
+          <div>
+            <h4>تأكيد الطلب والعنوان</h4>
+            <p>نؤكد معك تفاصيل الطلب وعنوان التسليم في أي ولاية بتونس.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">٣</span>
+          <div>
+            <h4>التحضير اليدوي</h4>
+            <p>نحضّر طلبك طازجًا، ونغلّفه بعناية للحفاظ على الرائحة والنكهة.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">٤</span>
+          <div>
+            <h4>التوصيل المجاني</h4>
+            <p>يصلك الطلب إلى باب دارك، دون أي مصاريف توصيل، أينما كنت في تونس.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="wa-band" id="contact">
+  <div class="wrap">
+    <h2>جاهزون لتحضير طلبك</h2>
+    <p>تواصلي معنا مباشرة عبر واتساب لمعرفة الأسعار والكميات المتوفرة، وسنساعدك في اختيار ما يناسب مطبخك.</p>
+    <a class="wa-btn" href="https://wa.me/21650992242" target="_blank" rel="noopener">
+      <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.31.66 4.46 1.8 6.29L4 29l7.9-1.75A11.9 11.9 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16.001 3zm0 21.8c-1.98 0-3.83-.55-5.41-1.5l-.39-.23-4.69 1.04 1.03-4.57-.25-.4A9.75 9.75 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8S26.8 9.04 26.8 15 21.96 24.8 16 24.8zm5.94-8.1c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.51-.16-.73.16-.22.32-.84 1.05-1.03 1.26-.19.22-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.6-.95-.85-1.59-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.48-.57.16-.19.21-.32.32-.54.11-.22.05-.4-.03-.57-.08-.16-.73-1.77-1-2.42-.26-.63-.53-.55-.73-.56-.19-.01-.4-.01-.62-.01-.22 0-.57.08-.87.4-.3.32-1.14 1.11-1.14 2.72 0 1.6 1.17 3.15 1.33 3.37.16.22 2.3 3.5 5.57 4.91.78.34 1.38.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37z"/></svg>
+      راسلينا على واتساب الآن
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="family">
+      <img src="assets/leila-couple.jpg" alt="ليلى عزوزي وزوجها في البيت">
+      <div class="family-text">
+        <h3 style="font-size:1.5rem; margin-bottom:14px;">مشروع عائلي، بدعم من الدار كلها</h3>
+        <p>
+          توابل الدار ليس مجرد نشاط تجاري، بل امتداد لمطبخ عائلتنا في منوبة. كل نصيحة تُقال حول جودة الفلفل أو درجة تحميص الكمون تمرّ أولًا على مائدتنا نحن قبل أن تصل إليكم.
+        </p>
+        <div class="signature">— من دارنا إلى داركم</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">توابل الدار</div>
+      <div class="foot-cols">
+        <div>
+          <h5>تواصل</h5>
+          <a href="https://wa.me/21650992242" target="_blank" rel="noopener">واتساب: 21650992242+</a>
+          <div>منوبة، تونس</div>
+        </div>
+        <div>
+          <h5>روابط</h5>
+          <a href="#story">قصتنا</a>
+          <a href="#products">الأصناف</a>
+          <a href="#delivery">التوصيل</a>
+        </div>
+        <div>
+          <h5>ساعات العمل</h5>
+          <div>كل أيام الأسبوع</div>
+          <div>الرد على واتساب فوري غالبًا</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">© توابل الدار — ليلى عزوزي، منوبة. جميع الحقوق محفوظة.</div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/21650992242" target="_blank" rel="noopener" aria-label="راسلينا على واتساب">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.31.66 4.46 1.8 6.29L4 29l7.9-1.75A11.9 11.9 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16.001 3zm0 21.8c-1.98 0-3.83-.55-5.41-1.5l-.39-.23-4.69 1.04 1.03-4.57-.25-.4A9.75 9.75 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8S26.8 9.04 26.8 15 21.96 24.8 16 24.8zm5.94-8.1c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.51-.16-.73.16-.22.32-.84 1.05-1.03 1.26-.19.22-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.6-.95-.85-1.59-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.15-.15.32-.38.48-.57.16-.19.21-.32.32-.54.11-.22.05-.4-.03-.57-.08-.16-.73-1.77-1-2.42-.26-.63-.53-.55-.73-.56-.19-.01-.4-.01-.62-.01-.22 0-.57.08-.87.4-.3.32-1.14 1.11-1.14 2.72 0 1.6 1.17 3.15 1.33 3.37.16.22 2.3 3.5 5.57 4.91.78.34 1.38.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37z"/></svg>
+</a>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const products = [
+    {name:"هريسة تونسية حارة", desc:"فلفل أحمر حار مطحون مع ثوم وكمون، الأساس في كل طبخة تونسية.", color1:"#B23A2C", color2:"#7A2419"},
+    {name:"تابل تونسي", desc:"خلطة تقليدية من الفلفل والكزبرة والكمون والثوم المجفف.", color1:"#C97A2E", color2:"#8C4E17"},
+    {name:"كمون مطحون", desc:"محمّص ومطحون طازجًا، رائحة قوية ونكهة دافئة.", color1:"#8C5A3C", color2:"#5C3A24"},
+    {name:"كزبرة مطحون", desc:"نكهة حمضية خفيفة، أساسية في المرقة والشرمولة.", color1:"#B08B3C", color2:"#7A5C24"},
+    {name:"كركم", desc:"لون ذهبي طبيعي ونكهة ترابية، من أفضل المصادر.", color1:"#D9A441", color2:"#A87A22"},
+    {name:"بابريكا حلوة", desc:"فلفل أحمر حلو مجفف ومطحون بعناية، للون والنكهة معًا.", color1:"#C74B2E", color2:"#8F2E1B"},
+    {name:"فلفل أحمر حار", desc:"حدة قوية، من فلفل مجفف تحت الشمس ومطحون يدويًا.", color1:"#A62C1E", color2:"#6E1A10"},
+    {name:"فلفل أسود مطحون", desc:"حبيبات كاملة تُطحن عند الطلب لضمان أقصى نكهة.", color1:"#3B322A", color2:"#1E1A15"},
+    {name:"قرفة عيدان ومطحونة", desc:"نكهة دافئة حلوة، تُستعمل في الحلويات والمشروبات.", color1:"#9C5A32", color2:"#6B3A1E"},
+    {name:"يانسون", desc:"حبات معطرة، مثالية للشاي والحلويات التقليدية.", color1:"#C9BF8C", color2:"#8E8459"},
+    {name:"حبة سوداء (حبة البركة)", desc:"حبات صغيرة داكنة، تُضاف للخبز والمخللات.", color1:"#2B2620", color2:"#0F0D0A"},
+    {name:"حلبة مطحونة", desc:"نكهة مرّة خفيفة، تُستعمل في اللحم لحلو والمخللات.", color1:"#C2A23C", color2:"#8A6F1E"},
+    {name:"زعتر بلدي", desc:"أوراق مجففة ومطحونة من أعشاب طبيعية غير مرشوشة.", color1:"#6E7B3F", color2:"#495226"},
+    {name:"ثوم مجفف مطحون", desc:"بديل عملي للثوم الطازج، يحتفظ برائحته القوية.", color1:"#D8CBA6", color2:"#A9946A"},
+    {name:"بصل مجفف مطحون", desc:"نكهة حلوة مركزة، مثالي للتتبيلات الجافة.", color1:"#C7A76A", color2:"#8F7440"},
+    {name:"توابل الكسكسي", desc:"خلطة خاصة من التوابل المعدّة لطبق الكسكسي التونسي.", color1:"#B5652E", color2:"#7A421A"},
+    {name:"قرنفل", desc:"نكهة قوية معطرة، للمرقة والحلويات والمشروبات الساخنة.", color1:"#4A2E28", color2:"#241512"},
+  ];
+
+  const grid = document.getElementById('productGrid');
+  products.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'p-card';
+    card.innerHTML = `
+      <div class="p-swatch" style="background:radial-gradient(circle at 32% 28%, ${p.color1}, ${p.color2} 78%);
+        box-shadow: inset 0 0 0 3px rgba(251,243,227,0.12);"></div>
+      <div class="p-name">${p.name}</div>
+      <div class="p-desc">${p.desc}</div>
+    `;
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
