@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجر الجزائر</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 20px; background: #f4f4f9; color: #333; }
+    h1, h2 { color: #2c3e50; }
+    .container { max-width: 800px; margin: 0 auto; }
+    .card { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input, textarea, button { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    button { background: #27ae60; color: white; border: none; font-weight: bold; cursor: pointer; }
+    button:hover { background: #219150; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+    .product-card { background: white; padding: 15px; border-radius: 8px; border: 1px solid #ddd; text-align: center; }
+    .product-card img { max-width: 100%; height: 150px; object-fit: cover; border-radius: 4px; }
+    .price { color: #e74c3c; font-weight: bold; font-size: 1.1em; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🛒 متجر الجزائر الإلكتروني</h1>
+
+    <!-- لوحة إضافة منتج جديد -->
+    <div class="card">
+      <h2>إضافة منتج جديد (لوحة التحكم)</h2>
+      <form id="productForm">
+        <div class="form-group">
+          <label>اسم المنتج</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label>السعر (د.ج)</label>
+          <input type="number" id="price" required>
+        </div>
+        <div class="form-group">
+          <label>رابط الصورة</label>
+          <input type="url" id="image" placeholder="https://example.com/image.jpg">
+        </div>
+        <div class="form-group">
+          <label>الوصف</label>
+          <textarea id="description" rows="3"></textarea>
+        </div>
+        <button type="submit">حفظ المنتج في قاعدة البيانات</button>
+      </form>
+    </div>
+
+    <!-- قائمة المنتجات -->
+    <h2>المنتجات المتاحة</h2>
+    <div id="productsList" class="products-grid">
+      <p>جاري تحميل المنتجات...</p>
+    </div>
+  </div>
+
+  <script>
+    // جلب المنتجات من قاعدة البيانات عند فتح الصفحة
+    async function loadProducts() {
+      try {
+        const res = await fetch('/api/products');
+        const products = await res.json();
+        const container = document.getElementById('productsList');
+        
+        if (products.length === 0) {
+          container.innerHTML = '<p>لا توجد منتجات حالياً. قم بإضافة منتج جديد أعلاه.</p>';
+          return;
+        }
+
+        container.innerHTML = products.map(p => `
+          <div class="product-card">
+            <img src="${p.image || 'https://via.placeholder.com/150'}" alt="${p.name}">
+            <h3>${p.name}</h3>
+            <p class="price">${p.price} د.ج</p>
+            <p>${p.description || ''}</p>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error('خطأ في جلب المنتجات:', err);
+      }
+    }
+
+    // إرسال المنتج الجديد إلى السيرفر
+    document.getElementById('productForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const productData = {
+        name: document.getElementById('name').value,
+        price: document.getElementById('price').value,
+        image: document.getElementById('image').value,
+        description: document.getElementById('description').value
+      };
+
+      try {
+        const res = await fetch('/api/products', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(productData)
+        });
+
+        if (res.ok) {
+          alert('تم إدخال المنتج بنجاح إلى قاعدة البيانات!');
+          document.getElementById('productForm').reset();
+          loadProducts();
+        } else {
+          alert('حدث خطأ أثناء إضافة المنتج.');
+        }
+      } catch (err) {
+        console.error('خطأ:', err);
+      }
+    });
+
+    // تشغيل الجلب تلقائياً
+    loadProducts();
+  </script>
+</body>
+</html>
