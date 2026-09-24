@@ -1,0 +1,71 @@
+/* الزر العائم للتواصل عبر واتساب */
+.whatsapp-floating-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 4px 25px rgba(37, 211, 102, 0.45);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  direction: rtl;
+}
+.whatsapp-floating-btn:hover {
+  background: #20ba59;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+  color: #ffffff;
+}
+.whatsapp-btn-pulse {
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  background: rgba(37, 211, 102, 0.4);
+  animation: wa-pulse 2s infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes wa-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.whatsapp-icon-svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+.whatsapp-status-dot {
+  width: 9px;
+  height: 9px;
+  background: #10b981;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+.whatsapp-btn-text {
+  white-space: nowrap;
+}
+@media (max-width: 992px) {
+  .whatsapp-floating-btn {
+    bottom: 80px;
+    left: 16px;
+    padding: 12px;
+    border-radius: 50%;
+  }
+  .whatsapp-btn-text {
+    display: none;
+  }
+}
