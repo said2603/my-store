@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمة التوصيل السريع | قسنطينة</title>
+    <!-- خطوط جوجل (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --whatsapp-color: #25D366;
+            --dark-color: #2f3542;
+            --light-color: #f1f2f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+        }
+
+        /* --- القسم الأول (واجهة الموقع) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* حركة الدراجة (سكوتر) */
+        .scooter-container {
+            font-size: 5rem;
+            color: white;
+            margin: 20px 0;
+            animation: moveScooter 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes moveScooter {
+            0% { transform: translateX(-30px); }
+            100% { transform: translateX(30px); }
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            margin-top: 20px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+            background-color: #1ebd5a;
+        }
+
+        /* --- قسم قائمة الطعام --- */
+        .menu-section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--dark-color);
+            margin-bottom: 50px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .food-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .food-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin: 15px 0;
+        }
+
+        .order-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background-color: #e84118;
+        }
+
+        /* --- التذييل والموقع --- */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-info i {
+            color: var(--primary-color);
+            margin-left: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* زر واتساب العائم */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .whatsapp-btn { padding: 10px 25px; font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/213658618857" class="floating-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- القسم الأول (الشاشة الكاملة) -->
+    <section class="hero">
+        <h1>التوصيل السريع</h1>
+        <div class="scooter-container">
+            <i class="fas fa-motorcycle"></i>
+        </div>
+        <p style="font-size: 1.5rem; margin-bottom: 20px;">أشهى المأكولات تصلك إلى باب بيتك ساخنة وسريعة</p>
+        <a href="https://wa.me/213658618857" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> اطلب الآن عبر واتساب
+        </a>
+    </section>
+
+    <!-- قسم قائمة الطعام (أكثر من 20 صنف) -->
+    <section class="menu-section">
+        <h2 class="section-title">قائمة أشهى المأكولات</h2>
+        <div class="menu-grid">
+            
+            <!-- الصنف 1 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=60" alt="بيتزا مارغريتا">
+                <h3>بيتزا مارغريتا</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب بيتزا مارغريتا" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 2 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=60" alt="برغر لحم">
+                <h3>برغر لحم دبل</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب برغر لحم" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 3 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1648600021644-883c79e60241?auto=format&fit=crop&w=500&q=60" alt="شاورما دجاج">
+                <h3>شاورما دجاج سوري</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب شاورما دجاج" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 4 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d5b008e246?auto=format&fit=crop&w=500&q=60" alt="طاكوس">
+                <h3>طاكوس مكس غراتيني</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب طاكوس" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 5 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=60" alt="دجاج مقرمش">
+                <h3>دجاج مقرمش (بروستد)</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب دجاج مقرمش" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 6 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1645696301019-35adcc18fc21?auto=format&fit=crop&w=500&q=60" alt="كباب مشوي">
+                <h3>كباب لحم مشوي</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب كباب لحم" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 7 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=60" alt="مشاوي مشكلة">
+                <h3>طبق مشاوي مشكلة</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب مشاوي" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 8 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=60" alt="سلطة سيزر">
+                <h3>سلطة سيزر بالدجاج</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب سلطة سيزر" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 9 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=500&q=60" alt="بيتزا فواكه البحر">
+                <h3>بيتزا فواكه البحر</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب بيتزا فواكه البحر" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 10 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1610440042657-612c34d95e9f?auto=format&fit=crop&w=500&q=60" alt="برغر دجاج">
+                <h3>برغر دجاج مقرمش</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب برغر دجاج" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 11 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=60" alt="كلوب ساندويتش">
+                <h3>كلوب ساندويتش</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب كلوب ساندويتش" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 12 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=500&q=60" alt="بطاطا بالجبن">
+                <h3>بطاطا مقلية بصلصة الجبن</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب بطاطا بالجبن" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 13 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1627054248443-4f952089b0b4?auto=format&fit=crop&w=500&q=60" alt="أجنحة دجاج حارة">
+                <h3>أجنحة دجاج حارة</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب أجنحة دجاج" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 14 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1645696301389-9e8c459c5e3d?auto=format&fit=crop&w=500&q=60" alt="شاورما لحم">
+                <h3>شاورما لحم</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب شاورما لحم" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 15 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1633337474586-77884d852a42?auto=format&fit=crop&w=500&q=60" alt="ساندويتش فاهيتا">
+                <h3>ساندويتش فاهيتا</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب فاهيتا" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 16 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=500&q=60" alt="باستا ألفريدو">
+                <h3>باستا ألفريدو</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب باستا" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 17 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=500&q=60" alt="بيتزا فصول أربعة">
+                <h3>بيتزا فصول أربعة</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب بيتزا 4 فصول" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 18 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=500&q=60" alt="سوب الدجاج">
+                <h3>حساء الدجاج والذرة</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب حساء الدجاج" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 19 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1614398751058-eb2e0bf63e53?auto=format&fit=crop&w=500&q=60" alt="كوردون بلو">
+                <h3>كوردون بلو الدجاج</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب كوردون بلو" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 20 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1600271886742-f049cd451b02?auto=format&fit=crop&w=500&q=60" alt="عصير برتقال">
+                <h3>عصير برتقال طازج</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب عصير برتقال" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+            <!-- الصنف 21 -->
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=60" alt="موهيتو">
+                <h3>موهيتو منعش</h3>
+                <a href="https://wa.me/213658618857?text=أريد طلب موهيتو" class="order-btn" target="_blank">اطلب الآن</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- التذييل ومعلومات التواصل -->
+    <footer class="footer">
+        <div class="footer-info">
+            <p><i class="fas fa-map-marker-alt"></i> <strong>الموقع:</strong> حي بكيرة، قسنطينة (بجانب مسجد عمر بن الخطاب)</p>
+            <p><i class="fas fa-phone-alt"></i> <strong>رقم الهاتف و الواتساب:</strong> <span dir="ltr">0658 61 88 57</span></p>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #aaa;">جميع الحقوق محفوظة &copy; 2023 - خدمة التوصيل السريع قسنطينة</p>
+    </footer>
+
+</body>
+</html>
