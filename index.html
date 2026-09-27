@@ -1,71 +1,476 @@
-/* الزر العائم للتواصل عبر واتساب */
-.whatsapp-floating-btn {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  z-index: 80;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #25d366;
-  color: #ffffff;
-  padding: 12px 18px;
-  border-radius: 9999px;
-  font-size: 14px;
-  font-weight: 800;
-  text-decoration: none;
-  box-shadow: 0 4px 25px rgba(37, 211, 102, 0.45);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  direction: rtl;
-}
-.whatsapp-floating-btn:hover {
-  background: #20ba59;
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-  color: #ffffff;
-}
-.whatsapp-btn-pulse {
-  position: absolute;
-  inset: -3px;
-  border-radius: 9999px;
-  background: rgba(37, 211, 102, 0.4);
-  animation: wa-pulse 2s infinite;
-  pointer-events: none;
-  z-index: -1;
-}
-@keyframes wa-pulse {
-  0% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.15); opacity: 0; }
-  100% { transform: scale(1); opacity: 0; }
-}
-.whatsapp-icon-svg {
-  width: 26px;
-  height: 26px;
-  display: block;
-  fill: currentColor;
-  flex-shrink: 0;
-}
-.whatsapp-status-dot {
-  width: 9px;
-  height: 9px;
-  background: #10b981;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  right: 2px;
-}
-.whatsapp-btn-text {
-  white-space: nowrap;
-}
-@media (max-width: 992px) {
-  .whatsapp-floating-btn {
-    bottom: 80px;
-    left: 16px;
-    padding: 12px;
-    border-radius: 50%;
-  }
-  .whatsapp-btn-text {
-    display: none;
-  }
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مفتاح ذكي للتحكم عن بعد</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f7f8fa;
+      color: #17202a;
+      line-height: 1.8;
+    }
+
+    .top-bar {
+      background: #0d6b48;
+      color: white;
+      text-align: center;
+      padding: 9px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #e8fff4, #ffffff);
+      padding: 35px 18px 55px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      color: #113c2d;
+      font-size: 42px;
+      line-height: 1.35;
+      margin-bottom: 15px;
+    }
+
+    .hero-text h1 span {
+      color: #ef7d22;
+    }
+
+    .hero-text p {
+      font-size: 20px;
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+
+    .benefits {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .benefits li {
+      margin: 8px 0;
+      font-size: 17px;
+    }
+
+    .benefits li::before {
+      content: "✓";
+      display: inline-block;
+      background: #0d6b48;
+      color: white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      margin-left: 8px;
+      font-weight: bold;
+    }
+
+    .price-box {
+      margin: 20px 0;
+      padding: 14px 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px #0d6b4815;
+      display: inline-block;
+    }
+
+    .price-label {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .price {
+      color: #e85d04;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #25d366;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 35px;
+      text-decoration: none;
+      font-size: 19px;
+      font-weight: bold;
+      box-shadow: 0 7px 18px #25d36655;
+      transition: 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #159947;
+      transform: translateY(-2px);
+    }
+
+    .cta-button::before {
+      content: "💬";
+      margin-left: 8px;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #eeeeee;
+      box-shadow: 0 15px 35px #00000020;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+      direction: ltr;
+    }
+
+    .slide {
+      min-width: 100%;
+      aspect-ratio: 4 / 4.5;
+      direction: rtl;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 14px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+      border-radius: 50%;
+      background: #ffffff99;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #0d6b48;
+      width: 24px;
+      border-radius: 10px;
+    }
+
+    .features {
+      padding: 55px 18px;
+      background: white;
+      text-align: center;
+    }
+
+    .features h2,
+    .order-section h2 {
+      color: #113c2d;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      padding: 25px 18px;
+      border-radius: 15px;
+      background: #f5faf7;
+      border: 1px solid #e0eee7;
+    }
+
+    .feature .icon {
+      font-size: 40px;
+      margin-bottom: 8px;
+    }
+
+    .feature h3 {
+      color: #0d6b48;
+      margin-bottom: 7px;
+    }
+
+    .order-section {
+      padding: 55px 18px;
+      background: #e8fff4;
+      text-align: center;
+    }
+
+    .order-form {
+      max-width: 560px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px #00000012;
+    }
+
+    .order-form input,
+    .order-form select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 13px;
+      border: 1px solid #d4d9d7;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 16px;
+      text-align: right;
+    }
+
+    .order-form button {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .cod-note {
+      margin-top: 17px;
+      color: #0d6b48;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #113c2d;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 29px;
+      text-decoration: none;
+      box-shadow: 0 5px 18px #00000035;
+      z-index: 10;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 31px;
+      }
+
+      .hero-text p {
+        font-size: 17px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel {
+        max-width: 430px;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    🚚 توصيل سريع — الدفع عند الاستلام متاح
+  </div>
+
+  <section class="hero">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <h1>
+          تحكم في أجهزتك من أي مكان مع
+          <span>المفتاح الذكي</span>
+        </h1>
+
+        <p>
+          حوّل جهازك العادي إلى جهاز ذكي وتحكم في الإضاءة والأجهزة بسهولة عبر الهاتف.
+        </p>
+
+        <ul class="benefits">
+          <li>تحكم عن بعد عبر الهاتف</li>
+          <li>تركيب سهل وتصميم صغير</li>
+          <li>مناسب للإضاءة والأجهزة الكهربائية</li>
+          <li>دعم Wi‑Fi وتحكم عملي</li>
+        </ul>
+
+        <div class="price-box">
+          <div class="price-label">السعر عند الطلب</div>
+          <div class="price">الدفع عند الاستلام</div>
+        </div>
+
+        <br>
+
+        <a class="cta-button"
+           href="https://wa.me/213658618857?text=السلام%20عليكم،%20أريد%20طلب%20المفتاح%20الذكي"
+           target="_blank">
+          اطلب الآن عبر واتساب
+        </a>
+      </div>
+
+      <div class="carousel">
+        <div class="slides" id="slides">
+          <div class="slide">
+            <img src="product1.jpg" alt="المفتاح الذكي">
+          </div>
+          <div class="slide">
+            <img src="product2.jpg" alt="جانب المفتاح الذكي">
+          </div>
+          <div class="slide">
+            <img src="product3.jpg" alt="منافذ المفتاح الذكي">
+          </div>
+        </div>
+
+        <div class="dots">
+          <span class="dot active" onclick="goToSlide(0)"></span>
+          <span class="dot" onclick="goToSlide(1)"></span>
+          <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2>لماذا تختار المفتاح الذكي؟</h2>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="icon">📱</div>
+          <h3>تحكم من الهاتف</h3>
+          <p>شغّل أو أطفئ أجهزتك بسهولة حتى عندما تكون خارج المنزل.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">⚡</div>
+          <h3>تحكم عملي</h3>
+          <p>حل مناسب لتطوير الأجهزة التقليدية وتحويلها إلى أجهزة ذكية.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">🔧</div>
+          <h3>حجم صغير</h3>
+          <p>تصميم صغير يمكن تركيبه داخل علب المفاتيح الكهربائية المناسبة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="order-section">
+    <div class="container">
+      <h2>اطلب منتجك الآن</h2>
+
+      <form class="order-form" onsubmit="sendOrder(event)">
+        <input type="text" id="name" placeholder="الاسم الكامل" required>
+        <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+        <input type="text" id="wilaya" placeholder="الولاية والبلدية" required>
+        <input type="number" id="quantity" min="1" value="1" placeholder="الكمية" required>
+
+        <button class="cta-button" type="submit">
+          تأكيد الطلب عبر واتساب
+        </button>
+
+        <div class="cod-note">
+          ✓ الدفع عند الاستلام — لا تدفع مسبقاً
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    جميع الحقوق محفوظة © 2026
+  </footer>
+
+  <a class="floating-whatsapp"
+     href="https://wa.me/213658618857"
+     target="_blank"
+     aria-label="تواصل معنا عبر واتساب">
+    💬
+  </a>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.getElementById("slides");
+    const dots = document.querySelectorAll(".dot");
+
+    function goToSlide(index) {
+      currentSlide = index;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentSlide);
+      });
+    }
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % 3;
+      goToSlide(currentSlide);
+    }, 5000);
+
+    function sendOrder(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const wilaya = document.getElementById("wilaya").value;
+      const quantity = document.getElementById("quantity").value;
+
+      const message =
+        `السلام عليكم، أريد طلب المفتاح الذكي%0A%0A` +
+        `الاسم: ${encodeURIComponent(name)}%0A` +
+        `الهاتف: ${encodeURIComponent(phone)}%0A` +
+        `الولاية والبلدية: ${encodeURIComponent(wilaya)}%0A` +
+        `الكمية: ${encodeURIComponent(quantity)}%0A` +
+        `طريقة الدفع: الدفع عند الاستلام`;
+
+      window.open(`https://wa.me/213658618857?text=${message}`, "_blank");
+    }
+  </script>
+
+</body>
+</html>
