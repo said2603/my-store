@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المفتاح الذكي 4 قنوات</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #222;
+      line-height: 1.8;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f766e, #0b4f4a);
+      color: white;
+      padding: 45px 0;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 430px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    h1 {
+      font-size: 38px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: bold;
+      color: #ffe082;
+      margin: 15px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #25d366;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 19px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 45px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 30px;
+      color: #0f766e;
+      margin-bottom: 30px;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .benefit {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.08);
+      font-size: 17px;
+    }
+
+    .benefit span {
+      color: #0f766e;
+      font-size: 24px;
+      margin-left: 8px;
+    }
+
+    .details {
+      background: #e8f5f3;
+    }
+
+    .specs {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .specs p {
+      border-bottom: 1px solid #eee;
+      padding: 9px 0;
+    }
+
+    .order-box {
+      background: white;
+      max-width: 650px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.1);
+    }
+
+    .order-box input,
+    .order-box textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0 14px;
+      border: 1px solid #ddd;
+      border-radius: 7px;
+      font-size: 16px;
+    }
+
+    .order-box label {
+      font-weight: bold;
+    }
+
+    .order-box .btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    footer {
+      background: #123331;
+      color: white;
+      text-align: center;
+      padding: 22px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #25d366;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 28px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+      z-index: 10;
+    }
+
+    @media (max-width: 750px) {
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <h1>تحكم في أجهزتك من أي مكان!</h1>
+
+        <p class="subtitle">
+          المفتاح الذكي 4 قنوات للتحكم في الإنارة والأجهزة الكهربائية عبر الهاتف أو الريموت اللاسلكي.
+        </p>
+
+        <!-- عدّل السعر هنا -->
+        <div class="price">السعر: ______ دج</div>
+
+        <p>الدفع عند الاستلام داخل الجزائر</p>
+        <br>
+
+        <a class="btn" href="#order">اطلب الآن عبر واتساب</a>
+      </div>
+
+      <div class="hero-image">
+        <!-- استبدل الرابط بصورة المنتج -->
+        <img src="https://via.placeholder.com/600x500?text=Smart+Switch"
+             alt="المفتاح الذكي 4 قنوات">
+      </div>
+
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">لماذا تختار المفتاح الذكي؟</h2>
+
+      <div class="benefits">
+        <div class="benefit"><span>✓</span> التحكم في 4 أجهزة بشكل مستقل.</div>
+        <div class="benefit"><span>✓</span> تشغيل وإيقاف الأجهزة عبر الهاتف.</div>
+        <div class="benefit"><span>✓</span> يدعم Wi‑Fi بتردد 2.4GHz.</div>
+        <div class="benefit"><span>✓</span> يدعم الريموت اللاسلكي 433MHz.</div>
+        <div class="benefit"><span>✓</span> أزرار تحكم يدوية على الجهاز.</div>
+        <div class="benefit"><span>✓</span> مناسب للإنارة والمراوح والمضخات.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="details">
+    <div class="container">
+      <h2 class="section-title">مواصفات المنتج</h2>
+
+      <div class="specs">
+        <p><strong>عدد القنوات:</strong> 4 قنوات</p>
+        <p><strong>جهد التشغيل:</strong> AC 85–250V</p>
+        <p><strong>الاتصال:</strong> Wi‑Fi 2.4GHz وRF 433MHz</p>
+        <p><strong>الحمل الكهربائي:</strong> يصل إلى 10 أمبير لكل قناة حسب الاستخدام</p>
+        <p><strong>طريقة التحكم:</strong> الهاتف، الريموت، والأزرار اليدوية</p>
+        <p><strong>طريقة الدفع:</strong> الدفع عند الاستلام</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="container">
+      <h2 class="section-title">اطلب المنتج الآن</h2>
+
+      <div class="order-box">
+        <form onsubmit="sendOrder(event)">
+          <label>الاسم الكامل</label>
+          <input type="text" id="name" placeholder="اكتب اسمك" required>
+
+          <label>رقم الهاتف</label>
+          <input type="tel" id="phone" placeholder="مثال: 0550000000" required>
+
+          <label>الولاية والبلدية</label>
+          <input type="text" id="address" placeholder="اكتب الولاية والبلدية" required>
+
+          <label>الكمية</label>
+          <input type="number" id="quantity" value="1" min="1" required>
+
+          <label>ملاحظات إضافية</label>
+          <textarea id="notes" rows="3" placeholder="اكتب أي ملاحظة اختيارية"></textarea>
+
+          <button class="btn" type="submit">
+            إرسال الطلب عبر واتساب
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    الدفع عند الاستلام — اطلب الآن وتحقق من المنتج عند وصوله
+  </footer>
+
+  <a class="whatsapp-float"
+     href="https://wa.me/213658618857"
+     target="_blank"
+     aria-label="واتساب">☏</a>
+
+  <script>
+    function sendOrder(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const address = document.getElementById("address").value;
+      const quantity = document.getElementById("quantity").value;
+      const notes = document.getElementById("notes").value;
+
+      const message =
+`السلام عليكم، أريد طلب المفتاح الذكي 4 قنوات.
+
+الاسم: ${name}
+رقم الهاتف: ${phone}
+العنوان: ${address}
+الكمية: ${quantity}
+ملاحظات: ${notes || "لا توجد"}
+
+طريقة الدفع: عند الاستلام`;
+
+      const whatsappURL =
+        "https://wa.me/213658618857?text=" + encodeURIComponent(message);
+
+      window.open(whatsappURL, "_blank");
+    }
+  </script>
+
+</body>
+</html>
